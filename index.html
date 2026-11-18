@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script type="module" src="/src/main.js"></script>
+    <title>Document</title>
+</head>
+<body class="min-h-screen bg-[#FFF6E5] text-[#1E1B2E]">
+
+    <style>
+        .zellij {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cpath d='M32 4l6 15 15-6-6 15 15 6-15 6 6 15-15-6-6 15-6-15-15 6 6-15-15-6 15-6-6-15 15 6z' fill='none' stroke='%23F2B134' stroke-opacity='.22' stroke-width='1.5'/%3E%3C/svg%3E");
+            background-size: 64px 64px;
+        }
+        .kente {
+            background-image: repeating-linear-gradient(
+                90deg,
+                #F2B134 0 28px,
+                #C8553D 28px 56px,
+                #1F8A70 56px 84px,
+                #1B2A6B 84px 112px
+            );
+        }
+    </style>
+
+    <div class="kente h-2"></div>
+
+    <header class="bg-[#1B2A6B] text-[#FFF6E5]">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
+            <h1 class="font-serif text-2xl font-bold tracking-wide">
+                Zellij <span class="text-[#F2B134]">&amp;</span> Saffron
+            </h1>
+
+            <span class="rounded-full border border-[#F2B134]/60 px-4 py-1 text-xs font-semibold uppercase tracking-widest text-[#F2B134]">
+                Afro-Moroccan Kitchen
+            </span>
+        </nav>
+    </header>
+
+    <section class="zellij relative overflow-hidden bg-[#16225A] text-[#FFF6E5]">
+        <div class="mx-auto max-w-7xl px-6 py-16 text-center md:py-24">
+
+            <p class="mb-4 text-sm font-semibold uppercase tracking-[0.35em] text-[#F2B134]">
+                ◆ Maroc · Afrique · Saveurs ◆
+            </p>
+
+            <h2 class="mb-5 font-serif text-4xl font-bold leading-tight md:text-6xl">
+                Recipes with the soul of
+                <span class="italic text-[#F2B134]">Africa</span>
+            </h2>
+
+            <p class="mx-auto max-w-xl text-[#E9DFC9]">
+                From the souks of Marrakech to the spice routes of the continent,
+                discover bold flavors and bring them to your table.
+            </p>
+        </div>
+
+        <!-- Arch-shaped divider -->
+        <div class="h-8 rounded-t-[100%] bg-[#FFF6E5]"></div>
+    </section>
+
+    <main class="mx-auto max-w-7xl px-6 pb-12 pt-6">
+
+        <section class="mx-auto mb-14 flex max-w-2xl gap-3">
+            <input
+                id="search-input"
+                type="text"
+                placeholder="Search for a recipe..."
+                class="min-w-0 flex-1 rounded-full border-2 border-[#1B2A6B] bg-white px-6 py-4 outline-none transition placeholder:text-[#8A8699] focus:border-[#C8553D] focus:ring-4 focus:ring-[#C8553D]/20"
+            >
+
+            <button
+                id="search-btn"
+                class="rounded-full bg-[#F2B134] px-8 py-4 font-bold text-[#1B2A6B] shadow-[4px_4px_0_#1B2A6B] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[#E49F1C] hover:shadow-[2px_2px_0_#1B2A6B]"
+            >
+                Search
+            </button>
+        </section>
+
+<section class="mb-10 flex items-center justify-end">
+
+    <button
+        id="add-recipe-btn"
+        class="rounded-full border-2 border-[#1B2A6B] bg-[#F2B134] px-6 py-3 font-bold text-[#1B2A6B] shadow-[4px_4px_0_#1B2A6B] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[#E49F1C] hover:shadow-[2px_2px_0_#1B2A6B]"
+    >
+        + Ajouter une recette
+    </button>
+
+</section>
+
+<section
+    id="add-recipe-section"
+    class="mx-auto hidden mb-12  max-w-2xl rounded-3xl border-2 border-[#1B2A6B] bg-white p-6 shadow-[6px_6px_0_#1B2A6B]"
+>
+
+    <h3 class="mb-6 font-serif text-2xl font-bold text-[#1B2A6B]">
+        Ajouter une recette
+    </h3>
+
+    <form id="add-recipe-form" class="space-y-5">
+
+        <div>
+            <label class="mb-2 block font-semibold text-[#1B2A6B]">
+                Nom du plat
+            </label>
+            <input
+                id="recipe-name"
+                type="text"
+                placeholder="Ex: Moroccan Couscous"
+                required
+                class="w-full rounded-xl border-2 border-[#1B2A6B] px-4 py-3 outline-none focus:border-[#C8553D] focus:ring-4 focus:ring-[#C8553D]/20"
+            >
+        </div>
+
+        <div>
+            <label class="mb-2 block font-semibold text-[#1B2A6B]">
+                Image URL
+            </label>
+            <input
+                id="recipe-image"
+                type="url"
+                placeholder="https://example.com/image.jpg"
+                required
+                class="w-full rounded-xl border-2 border-[#1B2A6B] px-4 py-3 outline-none focus:border-[#C8553D] focus:ring-4 focus:ring-[#C8553D]/20"
+            >
+        </div>
+
+        <div>
+            <label class="mb-2 block font-semibold text-[#1B2A6B]">
+                Difficulté
+            </label>
+            <select
+                id="recipe-difficulty"
+                class="w-full rounded-xl border-2 border-[#1B2A6B] bg-white px-4 py-3 outline-none focus:border-[#C8553D]"
+            >
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+
+            <div>
+                <label class="mb-2 block font-semibold text-[#1B2A6B]">
+                    Préparation (min)
+                </label>
+                <input
+                    id="recipe-prep"
+                    type="number"
+                    min="0"
+                    required
+                    placeholder="20"
+                    class="w-full rounded-xl border-2 border-[#1B2A6B] px-4 py-3 outline-none focus:border-[#C8553D]"
+                >
+            </div>
+
+            <div>
+                <label class="mb-2 block font-semibold text-[#1B2A6B]">
+                    Cuisson (min)
+                </label>
+                <input
+                    id="recipe-cook"
+                    type="number"
+                    min="0"
+                    required
+                    placeholder="30"
+                    class="w-full rounded-xl border-2 border-[#1B2A6B] px-4 py-3 outline-none focus:border-[#C8553D]"
+                >
+            </div>
+
+        </div>
+
+        <div class="flex justify-end gap-3">
+
+            <button
+                type="button"
+                id="cancel-recipe-btn"
+                class="rounded-full border-2 border-[#1B2A6B] px-5 py-3 font-bold text-[#1B2A6B] transition hover:bg-[#df9711]"
+            >
+                Annuler
+            </button>
+
+            <button
+                type="submit"
+                class="rounded-full bg-[#1F8A70] px-6 py-3 font-bold text-white shadow-[3px_3px_0_#1B2A6B] transition hover:bg-[#176B57]"
+            >
+                Ajouter
+            </button>
+
+        </div>
+
+    </form>
+</section>
+
+
+        <!-- Recipes -->
+        <section>
+            <div class="mb-8 flex items-center justify-between gap-4">
+                <h3 class="font-serif text-3xl font-bold text-[#1B2A6B]">
+                    Our Recipes
+                </h3>
+
+                <span class="hidden h-[3px] flex-1 bg-[#C8553D]/30 sm:block"></span>
+
+                <span class="text-sm font-medium text-[#C8553D]">
+                    Discover your next meal
+                </span>
+            </div>
+
+            <!-- Recipes will be displayed here -->
+            <div
+                id="recipes-container"
+                class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" >
+                
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Separate Recipe Card Template -->
+    <template id="recipe-card-template">
+
+        <article class="group overflow-hidden rounded-3xl border-2 border-[#1B2A6B] bg-white shadow-[6px_6px_0_#1B2A6B] transition hover:-translate-y-1 hover:shadow-[8px_8px_0_#C8553D]">
+
+            <!-- Recipe Image (Moroccan arch shape) -->
+            <div class="h-56 overflow-hidden rounded-t-[7rem] border-b-2 border-[#1B2A6B] bg-[#F4E7CC]">
+                <img
+                    data-recipe-image
+                    src=""
+                    alt="Recipe image"
+                    class="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+                >
+            </div>
+
+            <!-- Recipe Information -->
+            <div class="p-5">
+
+                <h4
+                    data-recipe-name
+                    class="mb-4 line-clamp-2 font-serif text-lg font-bold text-[#1B2A6B]"
+                >
+                    Recipe Name
+                </h4>
+
+                <div class="flex items-center justify-between gap-2 text-sm">
+
+                    <span
+                        data-recipe-difficulty
+                        class="rounded-full bg-[#C8553D] px-3 py-1 font-semibold text-white"
+                    >
+                        Easy
+                    </span>
+
+                    <span class="font-medium text-[#1F8A70]">
+                        ◷ <span data-recipe-time>0</span> min
+                    </span>
+
+                </div>
+
+            </div>
+        </article>
+
+    </template>
+
+    <!-- Footer -->
+    <footer class="mt-16 bg-[#1B2A6B] text-center text-sm text-[#FFF6E5]">
+        <div class="kente h-2"></div>
+        <p class="px-6 py-6">
+            Zellij <span class="text-[#F2B134]">&amp;</span> Saffron · Made with ❤️ in Morocco
+        </p>
+    </footer>
+
+    <!-- <script type="module" src="/src/main.js"></script> -->
+
+</body>
+
+</html>
