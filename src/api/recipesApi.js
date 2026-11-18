@@ -23,3 +23,11 @@ export async function datafilterSerch(dataserch) {
     return response.data;
 }
 
+export async function addPost(newPost) {
+    const response = await axios.post(
+        "https://dummyjson.com/posts/add",
+        newPost
+    );
+
+    return response.data;
+}

@@ -1,5 +1,5 @@
 
-
+import { addPost,getdata } from "../api/recipesApi";
 function validationForm() {
     const newRecipe = {
         name: document.getElementById("recipe-name").value,
@@ -75,6 +75,7 @@ export function isvalid() {
         }
 
     } else {
+       
         return data;
 
     }

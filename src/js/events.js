@@ -15,7 +15,7 @@ export function filter() {
         showdata(filldatafromApi(datafilter))
         console.log(datafilter.recipes.length);
         
-if (datafilter.recipes.length === undefined) {
+if (datafilter.recipes.length === undefined||datafilter.recipes.length === 0) {
     const p = document.createElement("p");
     p.textContent = "Ce plat n'existe pas.";
     p.classList.add("text-red-600", "font-bold","text-[20px]", "text-center", "py-4",);
