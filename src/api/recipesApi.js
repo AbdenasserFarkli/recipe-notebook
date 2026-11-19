@@ -24,10 +24,28 @@ export async function datafilterSerch(dataserch) {
 }
 
 export async function addPost(newPost) {
-    const response = await axios.post(
-        "https://dummyjson.com/posts/add",
-        newPost
-    );
+    try {
+        const response = await axios.post(
+            "https://dummyjson.com/recipes/add",
+            newPost
+        );
 
-    return response.data;
+        console.log(response.data);
+        return response.data;
+
+    } catch (error) {
+        console.log(error.response.data);
+    }
+}
+export async function deleteRecipe(id) {
+    try {
+        const response = await api.delete(
+            `/recipes/${id}`
+        );
+
+        return response.data;
+
+    } catch (error) {
+        console.log(error.response?.data);
+    }
 }

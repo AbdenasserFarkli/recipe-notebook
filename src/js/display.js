@@ -10,7 +10,7 @@ import { getdata } from "../api/recipesApi.js";
     const fillcart = data.recipes.map((loop)=>{
         
           return `
-        <article id="${loop.id}" class="group overflow-hidden rounded-3xl border-2 border-[#1B2A6B] bg-white shadow-[6px_6px_0_#1B2A6B] transition hover:-translate-y-1 hover:shadow-[8px_8px_0_#C8553D]">
+        <article id="${loop.id}" class="cart group overflow-hidden rounded-3xl border-2 border-[#1B2A6B] bg-white shadow-[6px_6px_0_#1B2A6B] transition hover:-translate-y-1 hover:shadow-[8px_8px_0_#C8553D]">
 
             <!-- Image -->
             <div class="h-56 overflow-hidden rounded-t-[7rem] border-b-2 border-[#1B2A6B] bg-[#F4E7CC]">
@@ -38,7 +38,7 @@ import { getdata } from "../api/recipesApi.js";
                     </span>
                 </div>
 
-                <button class="w-full rounded-full border-2 border-[#1B2A6B] bg-[#F2B134] py-3 font-bold text-[#1B2A6B] shadow-[3px_3px_0_#1B2A6B] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[#C8553D] hover:text-white hover:shadow-[1px_1px_0_#1B2A6B]">
+                <button   id="btndelete" class="w-full rounded-full border-2 border-[#1B2A6B] bg-[#F2B134] py-3 font-bold text-[#1B2A6B] shadow-[3px_3px_0_#1B2A6B] transition hover:translate-x-[2px] hover:translate-y-[2px] hover:bg-[#C8553D] hover:text-white hover:shadow-[1px_1px_0_#1B2A6B]">
                     Delete
                 </button>
 
@@ -73,4 +73,4 @@ export function eventcart() {
                 buttonJJOter.classList.toggle("hidden")
 
     })
-}
+}   
