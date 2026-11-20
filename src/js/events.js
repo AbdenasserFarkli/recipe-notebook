@@ -52,20 +52,43 @@ export function buttton() {
         const buttonclick = inclick.closest("#btndelete")
         if (buttonclick !== null) {
             const cart = buttonclick.closest(".cart")
-            deleteRecipe(cart.id)
             const confirmed = confirm("Voulez-vous vraiment supprimer cette recette ?");
             if (confirmed) {
-                cart.remove();
+                try {
+                    await deleteRecipe(cart.id);
 
+                    cart.remove();
+                    alert("Recette supprimée avec succès");
+
+                } catch (error) {
+                    if (error.response) {
+                        const status = error.response.status;
+
+                        if (status === 400) {
+                            alert("Requête invalide.");
+                        } else if (status === 401) {
+                            alert("Veuillez vous connecter.");
+                        } else if (status === 404) {
+                            alert("Recette introuvable.");
+                        } else if (status >= 500) {
+                            alert("Erreur du serveur.");
+                        } else {
+                            alert("Une erreur est survenue.");
+                        }
+
+                    } else {
+                        alert("Problème de connexion ou requête interrompue.");
+                    }
+                }
             }
         }
 
 
     })
 }
-document.getElementById("add-recipe-section").addEventListener("submit",()=>{
-    const buttonJJOter= document.getElementById("add-recipe-section")
-            buttonJJOter.classList.add("hidden")
+document.getElementById("add-recipe-section").addEventListener("submit", () => {
+    const buttonJJOter = document.getElementById("add-recipe-section")
+    buttonJJOter.classList.add("hidden")
 
 
 })
